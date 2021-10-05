@@ -1,14 +1,14 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import { api } from "../api";
 
 const YaziListesi = (props) => {
   const [yaziListesi, setYaziListesi] = useState([]);
 
   useEffect(() => {
-    axios
-      .get("https://react-yazi-yorum.herokuapp.com/posts")
+   api()
+      .get("/posts")
       .then((response) => {
         setYaziListesi(response.data);
       });
